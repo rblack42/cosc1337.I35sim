@@ -1,0 +1,15 @@
+# virtualenv
+_venv
+
+# Python
+*.pyc
+
+# Mac
+.DS_Store
+
+# Vim
+*~
+*.swp
+
+# Sphinx
+_build
