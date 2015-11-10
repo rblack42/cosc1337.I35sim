@@ -11,7 +11,3 @@ Clock *watch_ptr = &timex;      // create a variable with the address of the obj
 TEST_CASE( "Test Clock exists", "[clock]") {
     CHECK( watch_ptr != NULL );        // this check will allow tests to continue if it fails
 }
-
-TEST_CASE( "test clock reports time", "[clock]") {
-    CHECK( timex.getTime() == 0.0);
-}
