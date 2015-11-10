@@ -60,7 +60,7 @@ Creating the Clock Class
 
 We will need a clock to manage the passingof time in our simulation. Here is a test for the class we will build:
 
-..  checkout:: S2
+..  checkpoint:: S2
 
 ..  literalinclude:: ../tests/test_clock.cpp
 
