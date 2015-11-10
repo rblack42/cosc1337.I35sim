@@ -7,7 +7,6 @@
 Clock timex;                    // create a new Clock object
 Clock *watch_ptr = &timex;      // create a variable with the address of the object
 
-
 TEST_CASE( "Test Clock exists", "[clock]") {
     CHECK( watch_ptr != NULL );        // this check will allow tests to continue if it fails
 }

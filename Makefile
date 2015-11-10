@@ -50,8 +50,8 @@ all:	$(APP_TARGET)$(EXT) $(TEST_TARGET)$(EXT)
 $(APP_TARGET)$(EXT):	$(OBJS)
 	$(CXX) -o $@ $(LFLAGS) $^
 
-$(TEST_TARGET)$(EXT):	$(TOBJS)
-	$(CXX) -o $@ $(LFLAGS) $^ $(COBJS)
+$(TEST_TARGET)$(EXT):	$(TOBJS) $(COBJS)
+	$(CXX) -o $@ $(LFLAGS) $^ 
 
 clean:
 	$(RM) $(APP_TARGET)$(EXT) $(TEST_TARGET)$(EXT) 
