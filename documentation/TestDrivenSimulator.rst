@@ -61,7 +61,8 @@ Using the ``Makefile`` include din this project, we can make sure everything wor
 Creating the Clock Class
 ************************
 
-We will need a clock to manage the passingof time in our simulation. Here is a test for the class we will build:
+We will need a clock to manage the passing of time in our simulation. Here is a
+test for the class we will build:
 
 ..  checkpoint:: S2
 
@@ -69,18 +70,29 @@ We will need a clock to manage the passingof time in our simulation. Here is a t
     :linenos:
     :caption tests/test_clock.cpp
 
-This test simply verifies that we can create an object from this new class. It will fail since we have not even written the class yet.
+This test simply verifies that we can create an object from this new class. It
+will fail since we have not even written the class yet.
 
 Default Constructor
 ===================
 
-We will add a default constructor that sets up an initialized clock object. For this exercise, the initial values will simply be set to something rational:
+We will add a default constructor that sets up an initialized clock object. For
+this exercise, the initial values will simply be set to something rational:
 
 ..  checkpoint:: S3
 
 ..  literalinclude::    ../tests/test_clock.cpp
     :linenos:
     :caption: tests/test_clock.cpp
+    :lines: 14-18
+
+And here is the new code we need in out clock class implementation file:
+
+..  literalinclude::    ../src/Clock.cpp
+    :linenos:
+    :caption:   src/Clock.cpp
+    :lines: 1-10
+
 
 
 ..  vim:filetype=rst spell:
