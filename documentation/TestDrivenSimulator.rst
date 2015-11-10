@@ -55,4 +55,17 @@ Using the ``Makefile`` include din this project, we can make sure everything wor
     $ make run
     $ make test
 
+Creating the Clock Class
+************************
+
+We will need a clock to manage the passingof time in our simulation. Here is a test for the class we will build:
+
+..  checkout S2
+
+..  literalinclude:: ../tests/test_clock.cpp
+
+This test simply verifies that we cna crete an object from this new class. It will fail since we have not even written the class yet.
+
+
+
 
