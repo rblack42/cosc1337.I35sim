@@ -29,6 +29,7 @@ Our basic starting program is a small variation on the classic "Hello, World":
 
 ..  literalinclude::    ../src/main.cpp
     :linenos:
+    :caption: main.cpp
 
 Our First Real Test
 *******************
@@ -65,9 +66,21 @@ We will need a clock to manage the passingof time in our simulation. Here is a t
 ..  checkpoint:: S2
 
 ..  literalinclude:: ../tests/test_clock.cpp
+    :linenos:
+    :caption tests/test_clock.cpp
 
-This test simply verifies that we cna crete an object from this new class. It will fail since we have not even written the class yet.
+This test simply verifies that we can create an object from this new class. It will fail since we have not even written the class yet.
 
+Default Constructor
+===================
+
+We will add a default constructor that sets up an initialized clock object. For this exercise, the initial values will simply be set to something rational:
+
+..  checkpoint S3
+
+..  literalinclude::    ../tests/test_clock.cpp
+    :linenos:
+    :caption: tests/test_clock.cpp
 
 
 ..  vim:filetype=rst spell:

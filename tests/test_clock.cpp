@@ -10,3 +10,9 @@ Clock *watch_ptr = &timex;      // create a variable with the address of the obj
 TEST_CASE( "Test Clock exists", "[clock]") {
     CHECK( watch_ptr != NULL );        // this check will allow tests to continue if it fails
 }
+
+TEST_CASE( "Test default constructor" ) {
+    REQUIRE( timex.getTime() == 0.0 );
+    timex.tick();
+    REQUIRE( timex.getTime() == 0.0 );
+}
