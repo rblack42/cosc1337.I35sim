@@ -76,7 +76,7 @@ Default Constructor
 
 We will add a default constructor that sets up an initialized clock object. For this exercise, the initial values will simply be set to something rational:
 
-..  checkpoint S3
+..  checkpoint:: S3
 
 ..  literalinclude::    ../tests/test_clock.cpp
     :linenos:
