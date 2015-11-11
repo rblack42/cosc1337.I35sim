@@ -1,5 +1,0 @@
-Clock.o: src/Clock.cpp include/Clock.h
-main.o: src/main.cpp
-test_clock.o: tests/test_clock.cpp include/catch.hpp include/Clock.h
-test_main.o: tests/test_main.cpp include/catch.hpp
-test_sanity.o: tests/test_sanity.cpp include/catch.hpp
