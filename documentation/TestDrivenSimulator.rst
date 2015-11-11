@@ -68,7 +68,7 @@ test for the class we will build:
 
 ..  literalinclude:: ../tests/test_clock.cpp
     :linenos:
-    :caption tests/test_clock.cpp
+    :caption: tests/test_clock.cpp
 
 This test simply verifies that we can create an object from this new class. It
 will fail since we have not even written the class yet.
