@@ -9,5 +9,6 @@ class Clock {
         Clock();
         void tick( void );
         float getTime( void );
+        void setTickSize( float step );
 };
 

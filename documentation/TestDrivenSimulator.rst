@@ -86,12 +86,42 @@ this exercise, the initial values will simply be set to something rational:
     :caption: tests/test_clock.cpp
     :lines: 14-18
 
-And here is the new code we need in out clock class implementation file:
+And here is the new code we need in our clock class implementation file:
 
 ..  literalinclude::    ../src/Clock.cpp
     :linenos:
     :caption:   src/Clock.cpp
     :lines: 1-10
+
+At this point we have a basic class set up, but the clock is not useful yet.
+
+Setting the Tick Step
+=====================
+
+The biggest problem is that we have no way to change the time step. Since we
+initialize the class with a value of zero for the ``tick_size`` attribute, we
+definitely need to change that. 
+
+..  literalinclude::    ../include/Clock.h
+    :linenos:
+    :caption: include/Clock.h
+
+Adding a Reset
+==============
+
+Let's add one more method that lest us reset the timer. Although we probably
+will not use the actual time very often, it might prove useful for output
+functions:
+
+..  literalinclude::    tests/test_clock.cpp
+    :linenos:
+    :caption: tests/test-clock.cpp
+
+And the implementation we need is here:
+
+..  literalinclude::    src/Clock.cpp
+    :linenos:
+    :caption: src/Clock.cpp
 
 
 

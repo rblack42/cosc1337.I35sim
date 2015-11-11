@@ -13,3 +13,7 @@ float Clock::getTime( void ) {
     return current_time;
 }
 
+void Clock::setTickSize( float step ) {
+    tick_size = step;
+}
+

@@ -16,3 +16,11 @@ TEST_CASE( "Test default constructor" ) {
     timex.tick();
     REQUIRE( timex.getTime() == 0.0 );
 }
+
+TEST_CASE( "Test step size set" ) {
+    timex.setTickSize( 1.0 );
+    REQUIRE( timex.getTime() == 0.0 );
+    timex.tick();
+    REQUIRE ( timex.getTime() == 1.0 );
+}
+
