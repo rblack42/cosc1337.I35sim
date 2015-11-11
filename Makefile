@@ -10,12 +10,12 @@ INC_DIR		= include
 
 # System dependencies
 CFLAGS = -I $(INC_DIR)
-CFLAGS += -Wc++11-extensions
+CFLAGS += -MMD
 
 ifeq ($(OS), Windows_NT)
 	EXT = .exe
 	RM = del	
-	CFLAGS += -MMD -std=c++11
+	CFLAGS += -std=c++11
 	CXX = C:\usr\local\mingw32\bin\g++.exe
 	PREFIX =
 else
@@ -25,10 +25,10 @@ else
 	CXX = g++
 	UNAME_S := $(shell uname -s)
 	ifeq ($(UNAME_S), Linux)
-		CFLAGS += -MMD
+		CFLAGS += 
 	endif
 	ifeq ($(UNAME_S), Darwin)
-		CFLAGS += -MMD
+		CFLAGS += 
 	endif
 endif
 
@@ -38,7 +38,8 @@ OBJS 	= $(FILES:.cpp=.o)
 TESTS 	= $(wildcard $(TEST_DIR)/*.cpp)
 TOBJS 	= $(TESTS:.cpp=.o)
 COBJS	= $(filter-out $(SRC_DIR)/main.o, $(OBJS))
-
+ALLOBJS	= $(OBJS) $(TOBJS)
+DEPENDS = $(ALLOBJS:.o=.d)
 
 # tools -----------------------------------------
 CXX 	= g++
@@ -55,10 +56,7 @@ $(TEST_TARGET)$(EXT):	$(TOBJS)
 
 clean:
 	$(RM) $(APP_TARGET)$(EXT) $(TEST_TARGET)$(EXT) 
-	$(RM) $(OBJS) $(TOBJS) make.deps
-
-make.deps:	$(FILES) $(TESTS)
-	$(CXX) -MM $(CFLAGS) $^ > make.deps
+	$(RM) $(OBJS) $(TOBJS) $(DEPENDS)
 
 run:	$(APP_TARGET)$(EXT)
 	$(PREFIX)$(APP_TARGET)
@@ -78,3 +76,4 @@ view:	docs
 %.o:	%.cpp make.deps
 	$(CXX) -c $(CFLAGS) $< -o $@
 
+-include $(DEPENDS)
