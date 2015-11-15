@@ -6,10 +6,10 @@ Test Driven Simulation
 ..  tut::
     :path: ../src
 
-We will build this simulation project usinf :term:`Test Driven Development`
+We will build this simulation project using :term:`Test Driven Development`
 using Phil Nash's catch.hpp_ system.
 
-We have discussed thebasic approach use din this system, so you need to review
+We have discussed the basic approach used in this system, so you need to review
 that lecture to make sure you know the basics.
 
 Where to Start
@@ -23,25 +23,28 @@ simulation object and activate that object by calling a ``run`` method. We will
 provide a way to configure this simulation object, but as a start, all we need
 is a very small main.cpp to get started. Should we test this? Not really, since
 the point of out testing is to test the classes we build. At this point, we do
-not need to test the entire aplicaiton we will build.
+not need to test the entire application we will build.
 
 Our basic starting program is a small variation on the classic "Hello, World":
 
 ..  literalinclude::    ../src/main.cpp
     :linenos:
+    :caption: main.cpp
 
 Our First Real Test
 *******************
 
-The first test we will build simple confirms that the etst program works. We will need a simple file to set up out testing system. That one liiks like this:
-
-test_main.cpp
+The first test we will build simple confirms that the test program works. We
+will need a simple file to set up out testing system. That one looks like this:
 
 ..  literalinclude::    ../tests/test_main.cpp
+    :linenos:
+    :caption: test_main.cpp
 
 You will never need to touch this file. 
 
-Here is a sanity check test, that we will use to make sure the test system works:
+Here is a sanity check test, that we will use to make sure the test system
+works:
 
 test_sanity.cpp
 
@@ -55,4 +58,72 @@ Using the ``Makefile`` include din this project, we can make sure everything wor
     $ make run
     $ make test
 
+Creating the Clock Class
+************************
+
+We will need a clock to manage the passing of time in our simulation. Here is a
+test for the class we will build:
+
+..  checkpoint:: S2
+
+..  literalinclude:: ../tests/test_clock.cpp
+    :linenos:
+    :caption: tests/test_clock.cpp
+
+This test simply verifies that we can create an object from this new class. It
+will fail since we have not even written the class yet.
+
+Default Constructor
+===================
+
+We will add a default constructor that sets up an initialized clock object. For
+this exercise, the initial values will simply be set to something rational:
+
+..  checkpoint:: S3
+
+..  literalinclude::    ../tests/test_clock.cpp
+    :linenos:
+    :caption: tests/test_clock.cpp
+    :lines: 14-18
+
+And here is the new code we need in our clock class implementation file:
+
+..  literalinclude::    ../src/Clock.cpp
+    :linenos:
+    :caption:   src/Clock.cpp
+    :lines: 1-10
+
+At this point we have a basic class set up, but the clock is not useful yet.
+
+Setting the Tick Step
+=====================
+
+The biggest problem is that we have no way to change the time step. Since we
+initialize the class with a value of zero for the ``tick_size`` attribute, we
+definitely need to change that. 
+
+..  literalinclude::    ../include/Clock.h
+    :linenos:
+    :caption: include/Clock.h
+
+Adding a Reset
+==============
+
+Let's add one more method that lest us reset the timer. Although we probably
+will not use the actual time very often, it might prove useful for output
+functions:
+
+..  literalinclude::    tests/test_clock.cpp
+    :linenos:
+    :caption: tests/test-clock.cpp
+
+And the implementation we need is here:
+
+..  literalinclude::    src/Clock.cpp
+    :linenos:
+    :caption: src/Clock.cpp
+
+
+
+..  vim:filetype=rst spell:
 

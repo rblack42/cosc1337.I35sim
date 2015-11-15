@@ -1,12 +1,12 @@
-// Clock.h - simulation timer class
 #pragma once
 
 class Clock {
     private:
-        float tick_size = 0.0;
-        float current_time = 0.0;
+        float tick_size;
+        float current_time;
     public:
-        void tick( void );
+        Clock();
         float getTime( void );
+        void tick( void );
+        void setTickSize( float step );
 };
-

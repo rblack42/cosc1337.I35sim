@@ -28,7 +28,11 @@ else
 		CFLAGS += 
 	endif
 	ifeq ($(UNAME_S), Darwin)
+<<<<<<< HEAD
 		CFLAGS += 
+=======
+		CFLAGS +=
+>>>>>>> S3
 	endif
 endif
 
@@ -73,7 +77,7 @@ view:	docs
 
 # implicit rules --------------------------------
 
-%.o:	%.cpp make.deps
+%.o:	%.cpp
 	$(CXX) -c $(CFLAGS) $< -o $@
 
 -include $(DEPENDS)

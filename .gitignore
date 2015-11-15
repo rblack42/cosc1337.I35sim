@@ -13,3 +13,7 @@ _venv
 
 # Sphinx
 _build
+
+# C
+*.o
+*.d

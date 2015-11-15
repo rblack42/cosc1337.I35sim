@@ -1,0 +1,133 @@
+Simulator Tutorial Steps
+########################
+
+Part I - Project setup
+**********************
+
+    * git init on empty directory
+
+    * add .gitignore
+
+S0: Project start
+=================
+
+    * basic directory structure, no code
+
+S1: Basic application code, documentation
+=========================================
+
+    * Makefile
+
+    * src/main.cpp (hello, world)
+
+    * include/catch.hpp
+
+    * tests/test_main.cpp
+
+    * tests/test_sanity.cpp
+
+    * documentation/basic setup
+
+S2: Clock class start
+
+    * tests/test_clock (default constructor)
+
+        * initial time is zero
+
+        * initial step is zero
+    
+    * Constructor (step)
+
+        * initial time is zero
+
+        * initial step is set
+
+    * include/CLock.h
+
+    * src/Clock.cpp - constructor code
+
+S3: Clock basic operation
+
+    * tests/test_clock.cpp (tick)
+
+        * initial time is zero
+
+        * step produces correct time
+
+    * include/Clock.h (add attrinutes and tick, getTime methods)
+
+    * src/Clock.cpp (add methods)
+
+S4: Clock set tick size
+=======================
+
+    * set tick size
+
+    * test step is corect
+
+S5: Clock reset method
+======================
+
+    * set tick size
+
+    * step
+
+    * reset
+
+    * check time is zero
+
+S6: Main clock test
+===================
+
+    * create clockin main
+
+    * set loop, break when time reeches some limit
+
+Part II - Simulator Class
+*************************
+
+Simulator constructor
+=====================
+
+    * create sim object
+
+    * test sim time is zero
+
+    * set sim step
+
+Simulator run method
+====================
+
+    * set sim stop time
+
+    * run
+
+    * test sim time is correct
+
+Main test of simulator
+
+    * change main for create simualtor object
+
+    * run sim
+
+Part III - Linked List Class
+****************************
+
+Create Empty List
+
+    * test constructor
+
+    * test list is empty
+
+Add node
+
+    * Create node
+
+    
+Add element to list
+
+Remove element from list
+
+
+
+
