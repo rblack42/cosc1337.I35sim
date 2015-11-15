@@ -5,6 +5,7 @@ TEST_TARGET	= run_tests
 
 # directories -----------------------------------
 SRC_DIR		= src
+LIB_DIR 	= lib
 TEST_DIR	= tests
 INC_DIR		= include
 
@@ -33,13 +34,14 @@ else
 endif
 
 # file lists ------------------------------------
-FILES 	= $(wildcard $(SRC_DIR)/*.cpp)
-OBJS 	= $(FILES:.cpp=.o)
-TESTS 	= $(wildcard $(TEST_DIR)/*.cpp)
-TOBJS 	= $(TESTS:.cpp=.o)
-COBJS	= $(filter-out $(SRC_DIR)/main.o, $(OBJS))
-ALLOBJS	= $(OBJS) $(TOBJS)
-DEPENDS = $(ALLOBJS:.o=.d)
+SRC_FILES 	= $(wildcard $(SRC_DIR)/*.cpp)
+LIB_FILES	= $(wildcard $(LIB_DIR)/*.cpp)
+TEST_FILES 	= $(wildcard $(TEST_DIR)/*.cpp)
+SRC_OBJS 	= $(SRC_FILES:.cpp=.o)
+LIB_OBJS	= $(LIB_FILES:.cpp=.o)
+TEST_OBJS 	= $(TEST_FILES:.cpp=.o)
+ALL_OBJS	= $(SRC_OBJS) $(LIB_OBJS) $(TEST_OBJS)
+DEPENDS 	= $(ALL_OBJS:.o=.d)
 
 # tools -----------------------------------------
 CXX 	= g++
@@ -48,15 +50,15 @@ RM		= rm -f
 # build targets ---------------------------------
 all:	$(APP_TARGET)$(EXT) $(TEST_TARGET)$(EXT)
 
-$(APP_TARGET)$(EXT):	$(OBJS)
+$(APP_TARGET)$(EXT):	$(SRC_OBJS) $(LIB_OBJS)
 	$(CXX) -o $@ $(LFLAGS) $^
 
-$(TEST_TARGET)$(EXT):	$(TOBJS)
-	$(CXX) -o $@ $(LFLAGS) $^ $(COBJS)
+$(TEST_TARGET)$(EXT):	$(TEST_OBJS)
+	$(CXX) -o $@ $(LFLAGS) $^ $(LIB_OBJS)
 
 clean:
 	$(RM) $(APP_TARGET)$(EXT) $(TEST_TARGET)$(EXT) 
-	$(RM) $(OBJS) $(TOBJS) $(DEPENDS)
+	$(RM) $(ALL_OBJS) $(DEPENDS)
 
 run:	$(APP_TARGET)$(EXT)
 	$(PREFIX)$(APP_TARGET)
