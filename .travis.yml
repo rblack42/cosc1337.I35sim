@@ -1,0 +1,23 @@
+language: python
+sudo: false
+addons:
+    apt:
+        packages:
+        - build-essential
+        - doxygen
+        - enchant
+
+python:
+    - "2.7"
+
+# install dependencies
+install:
+    - 'pip install -r requirements.txt'
+
+# run tests
+script:
+    - make
+    - make test
+    - make docs
+    - make spelling
+

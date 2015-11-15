@@ -73,6 +73,6 @@ view:	docs
 
 # implicit rules --------------------------------
 
-%.o:	%.cpp make.deps
+%.o:	%.cpp
 	$(CXX) -c $(CFLAGS) $< -o $@
 

@@ -13,7 +13,10 @@ sys.path.insert(0, os.path.abspath('.'))
 extensions = [
     'sphinx.ext.pngmath',
     'tut.sphinx',
+    'sphinxcontrib.spelling',
 ]
+
+spelling_word_list_filename = 'spelling_wordlist.txt'
 
 templates_path = ['_templates']
 source_suffix = '.rst'
@@ -39,7 +42,7 @@ todo_include_todos = False
 
 html_theme = 'sphinx_rtd_theme'
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
-html_title = 'rstRefactor'
+html_title = 'I35sim'
 html_logo = '_static/images/ACClogo.png'
 #html_favicon = None
 html_static_path = ['_static']
@@ -57,7 +60,7 @@ latex_elements = {
 }
 
 latex_documents = [
-  (master_doc, 'rstRefactor.tex', u'reStructuredText Refactor',
+  (master_doc, 'I35sim.tex', u'I-35 Simuator',
    u'Roie R. Black', 'manual'),
 ]
 
