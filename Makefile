@@ -28,11 +28,7 @@ else
 		CFLAGS += 
 	endif
 	ifeq ($(UNAME_S), Darwin)
-<<<<<<< HEAD
 		CFLAGS += 
-=======
-		CFLAGS +=
->>>>>>> S3
 	endif
 endif
 
@@ -72,8 +68,13 @@ test:	$(TEST_TARGET)$(EXT)
 docs:
 	cd documentation && make html
 
+.PHONY:
 view:	docs
 	open -a Firefox documentation/_build/html/index.html
+
+.PHONY:
+spelling:
+	cd documentation && make spelling
 
 # implicit rules --------------------------------
 

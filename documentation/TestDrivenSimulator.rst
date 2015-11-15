@@ -15,8 +15,6 @@ that lecture to make sure you know the basics.
 Where to Start
 **************
 
-..  checkpoint:: S1
-
 We will be building a simulation class and a number of supporting classes as
 well. The main application we will write is very simple. It will create one
 simulation object and activate that object by calling a ``run`` method. We will
@@ -64,8 +62,6 @@ Creating the Clock Class
 We will need a clock to manage the passing of time in our simulation. Here is a
 test for the class we will build:
 
-..  checkpoint:: S2
-
 ..  literalinclude:: ../tests/test_clock.cpp
     :linenos:
     :caption: tests/test_clock.cpp
@@ -78,8 +74,6 @@ Default Constructor
 
 We will add a default constructor that sets up an initialized clock object. For
 this exercise, the initial values will simply be set to something rational:
-
-..  checkpoint:: S3
 
 ..  literalinclude::    ../tests/test_clock.cpp
     :linenos:
@@ -122,8 +116,6 @@ And the implementation we need is here:
 ..  literalinclude::    src/Clock.cpp
     :linenos:
     :caption: src/Clock.cpp
-
-
 
 ..  vim:filetype=rst spell:
 
